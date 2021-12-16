@@ -1,0 +1,27 @@
+.tweet {
+  border: 2px solid black;
+  width: 100%;
+  margin-bottom: 25px;
+  padding:0.5em;
+
+}
+.tweet-header, .tweet-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.userGroup {
+  display: flex;
+  align-items: center;
+}
+.userGroup img {
+  margin-right: 0.5em;
+}
+
+.fas:hover{
+  color:blueviolet;
+}
+.handle {
+  font-weight: bold;
+  opacity: 0.3;
+}
