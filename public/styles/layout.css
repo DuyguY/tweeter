@@ -1,25 +1,71 @@
-/*
- * http://www.paulirish.com/2012/box-sizing-border-box-ftw/
- * https://css-tricks.com/international-box-sizing-awareness-day/
- * Do not modify these two selectors, please
- */
 html {
   box-sizing: border-box;
 }
-*, *:before, *:after {
+*,
+*:before,
+*:after {
   box-sizing: inherit;
 }
-
 /*
  * Global layout stuff
  */
-
 body {
   color: #545149;
-  background-color: #f4f1ec;
-  font-size: 24px;
+  background-color: #f8ebd6;
+  font-family: 'Source Sans Pro', sans-serif;
+}
+.main-content {
+  display: flex;
+  align-items: flex-start;
 }
 
-/*
- * Additional CSS can be defined below or in other CSS files, as per instructions
- */
+@media only screen and (max-width: 799px) {
+ .main-content {
+   flex-direction: column;
+ 
+ }
+  main {
+    width: 100%;
+    margin: 2em auto;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    font-family: 'Source Sans Pro', sans-serif;
+  }
+  section.new-tweet {
+    margin: 0 4em 2em 4em;
+    display: flex;
+    flex-direction: column;
+  }
+  header.avatar {
+    width: 100%;
+
+  }
+ 
+  nav {
+    background-color: #006bc9;  
+    background-image: url("https://www.transparenttextures.com/patterns/diagmonds-light.png");
+    position: sticky;
+    z-index: 1;
+  }
+}
+@media only screen and (min-width: 800px) {
+  
+  header.avatar{
+    width: 60%;
+    margin: 14em 2em; 
+    flex-grow: 0;  
+  }
+
+  main {
+    width: 100%;
+    margin: 14em 1em;
+    margin-right: 2em;
+   
+  }
+ 
+  nav {
+    position: fixed;
+    background-color:#4056A1;
+  }
+} ;

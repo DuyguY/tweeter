@@ -1,0 +1,44 @@
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'Bungee', cursive;
+  height: 120px;
+  width: 100vw;
+  color:#FFFFFF; 
+  padding: 0 1.5em;
+  z-index: 2;
+  top:0;
+  }
+  @media only screen and (max-width: 799px) {
+    nav {
+      background-color: #006bc9; 
+    }
+  }
+  
+  .logo {
+    font-size: 1.5em;
+    font-family: 'Bungee', cursive;
+  }
+  
+  .write-tweet {
+    flex-direction: column;
+  }
+  
+  .write-tweet:hover {
+    cursor: grabbing;
+  }
+  
+  .write-tweet i {
+    color: red;
+    text-align: center;
+    width: 100%;
+  }
+  
+  #write {
+    font-family: 'Source Sans Pro', sans-serif;
+  }
+  
+  .fa-angle-double-down {
+    position: relative;
+  }
