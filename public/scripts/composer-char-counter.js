@@ -1,7 +1,8 @@
 $(document).ready(function() {
   
   // --- our code goes here ---
-  $("#tweet-text").on("keyup", function() {
+  $("#tweet-text").on("input", function() {
+
     const charNum = $(this).val().length;
     const number = $(this).siblings("footer").children(".counter").val(140 - charNum);
     console.log(number);

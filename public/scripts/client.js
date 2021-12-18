@@ -36,6 +36,7 @@ const createTweetElement = function(data) {
 
 
   const renderTweets = function(tweets) {
+    $(".tweet").remove();
     // loops through tweets
       for (const tweet of tweets) {
         // calls createTweetElement for each tweet
@@ -46,14 +47,23 @@ const createTweetElement = function(data) {
     
 
 //shorthand version of ajax
-const loadTweets = function() {
-  $.get("/tweets", function($tweet) {
-    console.log($tweet)
-    renderTweets($tweet);
-  });
-};
+// const loadTweets = function() {
+//   $.get("/tweets", function($tweet) {
+//     console.log($tweet)
+//     renderTweets($tweet);
+//   });
+// };
 
- loadTweets();
+
+ const loadTweets = async() => {
+  const allPosts = await $.ajax({
+    type: "GET",
+    url: "/tweets",
+  });
+  renderTweets(allPosts);
+};
+loadTweets();
+
 
   $("form").submit(function (event) {
     event.preventDefault();
@@ -61,17 +71,24 @@ const loadTweets = function() {
     // verify here before posting
     if ($('textarea#tweet-text').val().length > 140) {
       alert("You've entered too many characters");
-    }
-    if ($('textarea#tweet-text').val().length === 0) {
+    } else if ($('textarea#tweet-text').val().length === 0) {
       alert("Your tweet is empty!");
-    }
-    if ($('textarea#tweet-text').val() === null) {
+    } else if ($('textarea#tweet-text').val() === null) {
       alert("You didn't tweet anything!");
-    }
+    } else {
 
       $.post("/tweets", serializedData, function() {
+
+        $("textarea#tweet-text").val("").trigger("input");
+
+
         loadTweets();
-      })
+        
+      }) 
+
+    }
+
+      
   });  
 })
 
